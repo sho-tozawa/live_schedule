@@ -1,15 +1,38 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>LiveSchedule</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title>LiveSchedule</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
-  <body>
-    <%= yield %>
-  </body>
+<body>
+<header>
+  <div class="header">
+    <div class="header-logo">Your Live Schedule</div>
+    <div class="header-list">
+      <ul>
+        <li><%= link_to("ユーザー新規登録", "/users/new") %></li>
+        <li><%= link_to("ユーザー一覧", "/users") %></li>
+        <li><%= link_to("ライブハウス新規登録", "/live_houses/new") %></li>
+        <li><%= link_to("ライブハウス一覧", "/live_houses") %></li>
+      </ul>
+    </div>
+  </div>
+</header>
+<% if flash[:notice] %>
+  <div class="alert alert-success">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+<div class="main">
+  <%= yield %>
+</div>
+<div class="footer">
+  <p>Enjoy Your Music Life!!</p>
+</div>
+</body>
 </html>
