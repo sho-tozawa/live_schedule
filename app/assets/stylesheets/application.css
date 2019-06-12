@@ -1,4 +1,41 @@
 /*
+html5doctor.com Reset Stylesheet
+v1.6.1
+Last Updated: 2010-09-17
+Author: Richard Clark - http://richclarkdesign.com
+Twitter: @rich_clark
+*/
+
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+}
+
+body {
+    line-height: 2;
+}
+
+input, select {
+    vertical-align: middle;
+}
+
+/*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
  *
@@ -13,3 +50,34 @@
  *= require_tree .
  *= require_self
  */
+.header {
+    height: 100px;
+    background-color: #f7f2b4;
+    line-height: 100px;
+}
+
+.header-logo {
+    font-size: 40px;
+    float: left;
+}
+
+.header-list {
+    float: right;
+    font-size: 20px;
+    line-height: 60px;
+}
+
+.header-list li {
+    float: left;
+    list-style: none;
+    padding-right: 20px;
+}
+
+li {
+    list-style: disc;
+}
+
+.main {
+    background-color: #399ecc;
+    font-size: 30px;
+}
