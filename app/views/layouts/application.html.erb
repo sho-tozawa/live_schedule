@@ -19,6 +19,7 @@
         <li><%= link_to("ユーザー一覧", "/users") %></li>
         <li><%= link_to("ライブハウス新規登録", "/live_houses/new") %></li>
         <li><%= link_to("ライブハウス一覧", "/live_houses") %></li>
+        <li>ログイン中のユーザーID:<%= session[:user_id] %></li>
       </ul>
     </div>
   </div>
