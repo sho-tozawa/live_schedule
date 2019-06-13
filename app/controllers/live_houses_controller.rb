@@ -28,11 +28,11 @@ class LiveHousesController < ApplicationController
 
     respond_to do |format|
       if @live_house.save
-        format.html { redirect_to @live_house, notice: 'Live house was successfully created.' }
-        format.json { render :show, status: :created, location: @live_house }
+        format.html {redirect_to @live_house, notice: 'Live house was successfully created.'}
+        format.json {render :show, status: :created, location: @live_house}
       else
-        format.html { render :new }
-        format.json { render json: @live_house.errors, status: :unprocessable_entity }
+        format.html {render :new}
+        format.json {render json: @live_house.errors, status: :unprocessable_entity}
       end
     end
   end
@@ -42,11 +42,11 @@ class LiveHousesController < ApplicationController
   def update
     respond_to do |format|
       if @live_house.update(live_house_params)
-        format.html { redirect_to @live_house, notice: 'Live house was successfully updated.' }
-        format.json { render :show, status: :ok, location: @live_house }
+        format.html {redirect_to @live_house, notice: 'Live house was successfully updated.'}
+        format.json {render :show, status: :ok, location: @live_house}
       else
-        format.html { render :edit }
-        format.json { render json: @live_house.errors, status: :unprocessable_entity }
+        format.html {render :edit}
+        format.json {render json: @live_house.errors, status: :unprocessable_entity}
       end
     end
   end
@@ -56,19 +56,20 @@ class LiveHousesController < ApplicationController
   def destroy
     @live_house.destroy
     respond_to do |format|
-      format.html { redirect_to live_houses_url, notice: 'Live house was successfully destroyed.' }
-      format.json { head :no_content }
+      format.html {redirect_to live_houses_url, notice: 'Live house was successfully destroyed.'}
+      format.json {head :no_content}
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_live_house
-      @live_house = LiveHouse.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def live_house_params
-      params.require(:live_house).permit(:name)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_live_house
+    @live_house = LiveHouse.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def live_house_params
+    params.require(:live_house).permit(:name, :the_nearest_station)
+  end
 end
