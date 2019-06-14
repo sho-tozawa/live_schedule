@@ -67,7 +67,7 @@ class UsersController < ApplicationController
     if @user
       session[:user_id] = @user.id
       flash[:notice] = "You logged in successfully!"
-      redirect_to ("users/index")
+      redirect_to ("/users/index")
     else
       @error_message = "Don't you have the wrong email address or password?"
       @email = params[:email]
