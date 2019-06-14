@@ -1,8 +1,7 @@
 class ApplicationRecord < ActiveRecord::Base
   self.abstract_class = true
 
-  def self.before_action(i)
-    # code here
+  def self.before_action
     set_current_user
     authenticate_user
   end
@@ -17,6 +16,4 @@ class ApplicationRecord < ActiveRecord::Base
       redirect_to("/login")
     end
   end
-
-
 end
