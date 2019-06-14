@@ -75,6 +75,8 @@ class UsersController < ApplicationController
       redirect_to ("users/index")
     else
       @error_message = "Don't you have the wrong email address or password?"
+      @email = params[:email]
+      @password = params[:password]
       render ("users/login_form")
     end
   end
