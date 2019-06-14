@@ -16,6 +16,10 @@ class UsersController < ApplicationController
   # GET /users/new
   def new
     @user = User.new
+    if @current_user == nil
+      flash[:notice] = "Please login"
+      redirect_to("/login")
+    end
   end
 
   # GET /users/1/edit
