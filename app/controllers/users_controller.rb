@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :ensure_correct_user, only: [:edit, :update]
+  # before_action :forbid_login_user, {only: [:new, :create, :login_form, :login]}
+  # before_action :authenticate_user, only: [:index, :show, :edit, :update]
 
   # GET /users
   # GET /users.json
@@ -63,11 +66,11 @@ class UsersController < ApplicationController
   end
 
   def login
-    @user = User.find_by(email: params[:email], password: params[:password])
-    if @user
+    @user = User.find_by(email: params[:email])
+    if @user # && @user.authenticate(params[:password])
       session[:user_id] = @user.id
       flash[:notice] = "You logged in successfully!"
-      redirect_to ("/users/index")
+      redirect_to ("/users/#{@user.id}")
     else
       @error_message = "Don't you have the wrong email address or password?"
       @email = params[:email]
@@ -93,8 +96,15 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def ensure_correct_user
+    if @current_user.id != params[:id].to_i
+      flash[:notice] = "You don't have the authority"
+      redirect_to("/login")
+    end
+  end
+
   # Never trust parameters from the scary internet, only allow the white list through.
   def user_params
-    params.require(:user).permit(:name, :age, :email, :password)
+    params.require(:user).permit(:id, :name, :age, :email, :password)
   end
 end
