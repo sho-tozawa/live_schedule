@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :ensure_correct_user, only: [:edit, :update]
-  # before_action :forbid_login_user, {only: [:new, :create, :login_form, :login]}
-  # before_action :authenticate_user, only: [:index, :show, :edit, :update]
+  before_action :forbid_login_user, {only: [:new, :create, :login_form, :login]}
+  before_action :authenticate_user, only: [:index, :show, :edit, :update]
 
   # GET /users
   # GET /users.json
@@ -93,7 +93,7 @@ class UsersController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_user
-    @user = User.find(params[:id])
+    @user = User.find_by(id: params[:id])
   end
 
   def ensure_correct_user
