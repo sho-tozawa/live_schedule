@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :ensure_correct_user, only: [:edit, :update]
-  before_action :forbid_login_user, {only: [:new, :create, :login_form, :login]}
+  before_action :forbid_login_user, {only: [:new, :create]}
   before_action :authenticate_user, only: [:index, :show, :edit, :update]
 
   # GET /users
@@ -63,12 +63,6 @@ class UsersController < ApplicationController
       format.html {redirect_to users_url, notice: 'User was successfully destroyed.'}
       format.json {head :no_content}
     end
-  end
-
-  def logout
-    session[:user_id] = nil
-    flash[:notice] = "You logged out successfully!"
-    redirect_to ("/login")
   end
 
   private

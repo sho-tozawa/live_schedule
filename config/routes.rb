@@ -6,5 +6,5 @@ Rails.application.routes.draw do
   get "/" => "logins#login"
   get "login" => "logins#login"
   post "login" => "logins#login"
-  post "logout" => "users#logout"
+  post "logout" => "logins#logout"
 end
