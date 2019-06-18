@@ -18,4 +18,10 @@ class LoginsController < ApplicationController
   def login_form
     @user = User.find_by(email: params[:email], password: params[:password])
   end
+
+  def logout
+    session[:user_id] = nil
+    flash[:notice] = "You logged out successfully!"
+    redirect_to ("/login")
+  end
 end
