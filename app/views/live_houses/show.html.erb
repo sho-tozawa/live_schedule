@@ -1,9 +1,11 @@
-<p>
-  <strong>Name:</strong>
-  <%= @live_house.name %>
-  <strong>The nearest station:</strong>
-  <%= @live_house.the_nearest_station %>
-</p>
+<% if @current_user.id == @live_house.user_id %>
+  <p>
+    <strong>Name:</strong>
+    <%= @live_house.name %>
+    <strong>The nearest station:</strong>
+    <%= @live_house.the_nearest_station %>
+  </p>
 
 <%= link_to 'Edit', edit_live_house_path(@live_house) %> |
 <%= link_to 'Back', live_houses_path %>
+<% end %>

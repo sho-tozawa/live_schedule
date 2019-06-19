@@ -70,6 +70,6 @@ class LiveHousesController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def live_house_params
-    params.require(:live_house).permit(:name, :the_nearest_station)
+    params.require(:live_house).permit(:name, :the_nearest_station, :user_id)
   end
 end
