@@ -1,4 +1,4 @@
-<% if @current_user.id == @live_house.user_id %>
+<% if @live_house.user_id == @current_user.id %>
   <p>
     <strong>Name:</strong>
     <%= @live_house.name %>
@@ -6,6 +6,6 @@
     <%= @live_house.the_nearest_station %>
   </p>
 
-<%= link_to 'Edit', edit_live_house_path(@live_house) %> |
-<%= link_to 'Back', live_houses_path %>
+  <%= link_to 'Edit', edit_live_house_path(@live_house) %> |
+  <%= link_to 'Back', live_houses_path %>
 <% end %>

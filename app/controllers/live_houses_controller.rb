@@ -25,6 +25,7 @@ class LiveHousesController < ApplicationController
   # POST /live_houses.json
   def create
     @live_house = LiveHouse.new(live_house_params)
+    @live_house.user_id = @current_user.id
 
     respond_to do |format|
       if @live_house.save
