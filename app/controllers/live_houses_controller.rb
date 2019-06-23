@@ -4,7 +4,7 @@ class LiveHousesController < ApplicationController
   # GET /live_houses
   # GET /live_houses.json
   def index
-    @live_houses = LiveHouse.all
+    @live_houses = LiveHouse.where(user_id: @current_user.id)
   end
 
   # GET /live_houses/1
