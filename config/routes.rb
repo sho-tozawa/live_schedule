@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get "/" => "home#top"
   get 'logins/login'
   resources :live_houses
   resources :users
@@ -7,4 +6,7 @@ Rails.application.routes.draw do
   get "login" => "logins#login"
   post "login" => "logins#login"
   post "logout" => "logins#logout"
+
+  get "/" => "home#top"
+  get "about" => "home#about"
 end
