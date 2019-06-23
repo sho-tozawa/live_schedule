@@ -3,4 +3,5 @@ class User < ApplicationRecord
   validates :age, presence: true
   validates :email, presence: true ,uniqueness: true
 
+  has_many :live_houses
 end

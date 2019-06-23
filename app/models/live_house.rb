@@ -3,4 +3,5 @@ class LiveHouse < ApplicationRecord
   validates :the_nearest_station, presence: true
   validates :user_id, presence: true
 
+  belongs_to :user
 end
