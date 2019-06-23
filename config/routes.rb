@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
-  get 'home/top'
+  get "/" => "home#top"
   get 'logins/login'
   resources :live_houses
   resources :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  get "/" => "logins#login"
   get "login" => "logins#login"
   post "login" => "logins#login"
   post "logout" => "logins#logout"
