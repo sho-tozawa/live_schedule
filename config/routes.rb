@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'events/index'
+  get 'events/show'
+  get 'events/new'
+  get 'events/edit'
   get 'logins/login'
   resources :live_houses
   resources :users
