@@ -60,4 +60,14 @@ class EventsController < ApplicationController
   def set_event
     @event = Event.find(params[:id])
   end
+
+  def event_params
+    params.require(:event).permit(
+      :title,
+      :start,
+      :end,
+      :color,
+      :allday
+    )
+  end
 end
