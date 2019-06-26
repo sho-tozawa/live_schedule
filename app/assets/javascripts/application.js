@@ -10,3 +10,13 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+
+//= require jquery
+//= require moment
+//= require fullcalendar
+//= require fullcalendar/lang/ja
+
+$(document).ready(function(){
+    $('#calendar').fullCalendar({
+    });
+});
