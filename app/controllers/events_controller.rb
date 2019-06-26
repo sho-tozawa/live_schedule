@@ -1,4 +1,6 @@
 class EventsController < ApplicationController
+  before_action :set_event, only: [:show, :edit, :update, :destroy] #パラメータのidからレコードを特定するメソッド
+
   def index
     @events = Event.all
 
@@ -31,5 +33,41 @@ class EventsController < ApplicationController
         format.json {render json: @event.errors, status: :unprocessable_entity}
       end
     end
+  end
+
+  def update
+    respond_to do |format|
+      if @event.update(event_params)
+        format.html {redirect_to @event, notice: 'Event was successfully updated.'}
+        format.json {render :show, status: :ok, location: @event}
+      else
+        format.html {render :edit}
+        format.json {render json: @event.errors, status: :unprocessable_entity}
+      end
+    end
+  end
+
+  def destroy
+    @event.destroy
+    respond_to do |format|
+      format.html { redirect_to events_url, notice: 'Event was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
+
+
+  private
+  def set_event
+    @event = Event.find(params[:id])
+  end
+
+  def event_params
+    params.require(:event).permit(
+      :title,
+      :start,
+      :end,
+      :color,
+      :allday
+    )
   end
 end
